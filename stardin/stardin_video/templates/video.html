@@ -1,0 +1,5 @@
+{% if video %}
+    <h6>{{ video.uuid }}</h6>
+    <h1>{{ video.title }}</h1>
+    <a href="{% url 'player' video.uuid %}">PLAY</a>
+{% endif %}
