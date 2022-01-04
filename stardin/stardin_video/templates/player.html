@@ -9,14 +9,11 @@
 
     </head>
     <body>
-        <video-js id=vid1 width=640 height=480 class="vjs-default-skin" controls>
-            <source
-                src="{}"
-                type="application/dash+xml">
-        </video-js>
+        <video-js id=vid1 width=640 height=480 class="vjs-default-skin" controls></video-js>
         <script>
             var options = 
             {
+
                 plugins: {
                     httpSourceSelector:
                     {
@@ -25,8 +22,19 @@
                 }
             };
             let player = videojs('vid1', options);
+            // videojs.Vhs.xhr.beforeRequest = (options) => {
+            //         if (!options.headers){
+            //             options.headers = {}
+            //         }
+            //     }
+
+            player.src({
+                src: "",
+                type: "application/dash+xml",
+            });
             let qualityLevels = player.qualityLevels();
             player.httpSourceSelector();
+            // player.play();
         </script>
     </body>
 </html>
